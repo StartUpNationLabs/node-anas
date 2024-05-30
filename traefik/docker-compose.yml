@@ -5,8 +5,8 @@ services:
     container_name: "traefik"
     restart: unless-stopped
     ports:
-      - "9080:80"
-      - "9443:443"
+      - "9080:9080"
+      - "9443:9443"
     volumes:
       - "./traefik/letsencrypt:/letsencrypt"
       - "./traefik/logs:/var/log/traefik"

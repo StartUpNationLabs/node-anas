@@ -8,8 +8,7 @@
     },
     "autoApprovers": {
         "routes": {
-            "10.42.0.0/16": ["k3s@hs.ozeliurs.com"],
+            "10.42.0.0/16": ["*"],
         },
-        "exitNode": ["pia"],
     },
 }
