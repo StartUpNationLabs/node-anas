@@ -8,7 +8,7 @@
     },
     "autoApprovers": {
         "routes": {
-            "10.42.0.0/16": ["*"],
+            "10.42.0.0/16": ["k3s", "k3s.hs.apoorva64.com"],
         },
     },
 }
