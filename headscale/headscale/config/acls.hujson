@@ -1,0 +1,15 @@
+{
+    "acls": [
+        {"action": "accept", "src": ["*"], "dst": ["*:*"]}
+    ],
+    "tagOwners": {
+        "tag:k8s-operator": [],
+        "tag:k8s": ["tag:k8s-operator"]
+    },
+    "autoApprovers": {
+        "routes": {
+            "10.42.0.0/16": ["k3s@hs.ozeliurs.com"],
+        },
+        "exitNode": ["pia"],
+    },
+}

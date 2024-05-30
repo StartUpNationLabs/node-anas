@@ -1,0 +1,31 @@
+services:
+
+  headscale:
+    image: headscale/headscale:v0.23.0-alpha12
+    container_name: headscale
+    restart: unless-stopped
+    entrypoint: headscale serve
+    volumes:
+      - ./headscale/config:/etc/headscale
+    ports:
+      - "3478:3478"
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.headscale.rule=Host(`headscale.apoorva64.com`)"
+      - "traefik.http.routers.headscale.entrypoints=websecure"
+      - "traefik.http.routers.headscale.tls=true"
+      - "traefik.http.routers.headscale.tls.certresolver=cloudflare"
+      - "traefik.http.services.headscale.loadbalancer.server.port=8080"
+
+      - "com.centurylinklabs.watchtower.enable=true"
+    healthcheck:
+      test: [ "CMD", "headscale", "nodes", "list" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  traefik:
+    external: true

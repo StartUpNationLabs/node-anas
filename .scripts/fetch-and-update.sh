@@ -25,5 +25,12 @@ echo "Revealing secrets"
 git secret reveal -f
 
 # Run the on-update.sh script
-echo "Running on-update.sh"
-bash .on-update.sh
+echo "Running on-update.sh for each folder ..."
+for f in */; do
+    if [ -f "$f.on-update.sh" ]; then
+        echo "Running on-update.sh in $f"
+        cd $f
+        bash .on-update.sh
+        cd ..
+    fi
+done
