@@ -1,0 +1,7 @@
+.idea/
+
+# git-secret - https://sobolevn.github.io/git-secret/
+.gitsecret/keys/random_seed
+!*.secret
+
+# git-secret-encrypted

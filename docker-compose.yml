@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+
+  hello-world:
+    image: "traefik/whoami"
+    container_name: "simple-service"
+    restart: unless-stopped
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.simple-service.rule=Host(`hello-world.${BASE_DOMAIN:-ozeliurs.com}`)"
+      - "traefik.http.routers.simple-service.entrypoints=websecure"
+      - "traefik.http.routers.simple-service.tls=true"
+      - "traefik.http.routers.simple-service.tls.certresolver=cloudflare"
+      - "traefik.http.services.simple-service.loadbalancer.server.port=80"
+    healthcheck:
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:80" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+
+networks:
+  traefik:
+    external: true
