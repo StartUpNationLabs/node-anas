@@ -9,17 +9,7 @@ services:
       - ./headscale/config:/etc/headscale
     ports:
       - "3478:3478"
-    networks:
-      - traefik
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.headscale.rule=Host(`headscale.apoorva64.com`)"
-      - "traefik.http.routers.headscale.entrypoints=websecure"
-      - "traefik.http.routers.headscale.tls=true"
-      - "traefik.http.routers.headscale.tls.certresolver=cloudflare"
-      - "traefik.http.services.headscale.loadbalancer.server.port=8080"
-
-      - "com.centurylinklabs.watchtower.enable=true"
+      - "8080:8080"
     healthcheck:
       test: [ "CMD", "headscale", "nodes", "list" ]
       interval: 30s

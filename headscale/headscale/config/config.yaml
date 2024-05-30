@@ -189,11 +189,11 @@ tls_letsencrypt_challenge_type: HTTP-01
 # When HTTP-01 challenge is chosen, letsencrypt must set up a
 # verification endpoint, and it will be listening on:
 # :http = port 80
-tls_letsencrypt_listen: ":http"
+tls_letsencrypt_listen: ":8080"
 
 ## Use already defined certificates:
-tls_cert_path: ""
-tls_key_path: ""
+# tls_cert_path: ""
+# tls_key_path: ""
 
 log:
   # Output formatting for logs: text or json
