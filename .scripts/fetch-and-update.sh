@@ -33,4 +33,5 @@ for f in */; do
         bash .on-update.sh
         cd ..
     fi
+    # TODO: detect changes and restart only necessary services
 done
