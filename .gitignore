@@ -5,3 +5,4 @@
 !*.secret
 
 # git-secret-encrypted
+headscale/headscale/config/config.yaml
