@@ -6,3 +6,4 @@
 
 # git-secret-encrypted
 headscale/headscale/config/config.yaml
+kub-postgres/.env
