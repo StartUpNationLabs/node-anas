@@ -22,5 +22,5 @@ services:
     container_name: headscale-fixxer
     restart: unless-stopped
     environment:
-      API_URL: "http://headscale:8080/api/v1"
+      API_URL: "http://headscale.apoorva64.com:8080/api/v1"
       API_KEY: ${HEADSCALE_API_KEY}
