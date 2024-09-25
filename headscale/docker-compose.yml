@@ -1,6 +1,6 @@
 services:
   headscale:
-    image: headscale/headscale:v0.23.0-alpha12
+    image: headscale/headscale:v0.23.0
     container_name: headscale
     restart: unless-stopped
     entrypoint: headscale serve
