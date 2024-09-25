@@ -7,7 +7,7 @@ services:
     environment:
       HEADSCALE_OIDC_CLIENT_SECRET: ${HEADSCALE_OIDC_CLIENT_SECRET}
     volumes:
-      - ./headscale/config:/etc/headscale
+      - ./config:/etc/headscale
     ports:
       - "3478:3478"
       - "8080:8080"
