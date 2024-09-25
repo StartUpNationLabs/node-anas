@@ -48,29 +48,29 @@ log:
   level: info
 
 # ================ v0.23.0-alpha-mes-couilles format =================
-acl_policy_path: "/etc/headscale/acls.hujson"
+# acl_policy_path: "/etc/headscale/acls.hujson"
 # ================ v0.23.0 format =================
-# policy:
-#   mode: file
-#   path: "/etc/headscale/acls.hujson"
+policy:
+  mode: file
+  path: "/etc/headscale/acls.hujson"
 
 # ================ v0.23.0-alpha-mes-couilles format =================
-dns_config:
-  override_local_dns: true
-  nameservers:
-    - 1.1.1.1
-  domains: []
-  magic_dns: true
-  base_domain: hs.apoorva64.com
-
-# ================ v0.23.0 format =================
-# dns:
+# dns_config:
+#   override_local_dns: true
 #   nameservers:
-#     global:
-#       - 1.1.1.1
-#   search_domains: []
+#     - 1.1.1.1
+#   domains: []
 #   magic_dns: true
 #   base_domain: hs.apoorva64.com
+
+# ================ v0.23.0 format =================
+dns:
+  nameservers:
+    global:
+      - 1.1.1.1
+  search_domains: []
+  magic_dns: true
+  base_domain: hs.apoorva64.com
 
 unix_socket: /etc/headscale/headscale.sock
 unix_socket_permission: "0770"
