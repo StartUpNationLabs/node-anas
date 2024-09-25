@@ -20,10 +20,6 @@ fi
 echo "Pulling latest changes"
 git pull -X theirs
 
-# Reveal any new secrets
-echo "Revealing secrets"
-git secret reveal -f
-
 # Run the on-update.sh script
 echo "Running on-update.sh for each folder ..."
 for f in */; do

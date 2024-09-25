@@ -1,0 +1,27 @@
+services:
+  db:
+    image: mysql:9
+    container_name: kub-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: "kub"
+      MYSQL_USER: "kubuser"
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost",
+          "-p${MYSQL_ROOT_PASSWORD}",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5

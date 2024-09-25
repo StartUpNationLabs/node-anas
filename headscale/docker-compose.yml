@@ -1,17 +1,18 @@
 services:
-
   headscale:
     image: headscale/headscale:v0.23.0-alpha12
     container_name: headscale
     restart: unless-stopped
     entrypoint: headscale serve
+    environment:
+      HEADSCALE_OIDC_CLIENT_SECRET: ${HEADSCALE_OIDC_CLIENT_SECRET}
     volumes:
       - ./headscale/config:/etc/headscale
     ports:
       - "3478:3478"
       - "8080:8080"
     healthcheck:
-      test: [ "CMD", "headscale", "nodes", "list" ]
+      test: ["CMD", "headscale", "users", "list"]
       interval: 30s
       timeout: 10s
       retries: 3
